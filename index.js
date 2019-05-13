@@ -18,7 +18,7 @@ app.use(express.static('build'))
 app.use(bodyParser.json())
 app.use(logger)
 
-app.get('/api/notes', (request, response, next) => {
+app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
     response.json(notes.map(note => note.toJSON()))
   })
