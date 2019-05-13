@@ -1,35 +1,22 @@
 const mongoose = require('mongoose')
 
-mongoose.set('useFindAndModify', false)
-
-const url = process.env.MONGODB_URI
-
-console.log('commecting to', url)
-
-mongoose.connect(url, { useNewUrlParser: true })
-  .then(() => {
-    console.log('connected to MongoDB')
-  })
-  .catch((error) => {
-    console.log('error connection to MongoDB:', error.message)
-  })
-
 const noteSchema = new mongoose.Schema({
   content: {
     type: String,
-    minlength: 5,
-    required: true
+    required: true,
+    minlength: 5
   },
-  date: { 
-    type: Date,
-    required: true
-  },
+  date: Date,
   important: Boolean,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 })
 
 noteSchema.set('toJSON', {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
+    returnedObject.id = returnedObject._id
     delete returnedObject._id
     delete returnedObject.__v
   }
