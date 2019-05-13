@@ -1,21 +1,24 @@
 {
-  "name": "bujobackend",
-  "version": "0.0.1",
+  "name": "bujo-backend",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tiia Rautavesi",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.16.4"
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.4"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "eslint": "^5.12.1",
+    "nodemon": "^1.18.9"
   }
 }
