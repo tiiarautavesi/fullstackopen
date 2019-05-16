@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
 const noteSchema = new mongoose.Schema({
+  time: String,
+  day: String,
   content: {
     type: String,
     required: true,
